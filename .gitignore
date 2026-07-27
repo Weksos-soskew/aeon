@@ -1,0 +1,41 @@
+# macOS
+.DS_Store
+
+# Secrets & local env
+.env
+.env.local
+.env.*.local
+
+# Claude Code local state — ignored, EXCEPT the shipped operator skill
+# (`.claude/skills/aeon/` gives every fork the `/aeon` setup skill; see docs/aeon-setup.md)
+.claude/*
+!.claude/skills/
+.claude/skills/*
+!.claude/skills/aeon/
+
+# Cache dirs skills create at run time; regenerated every run
+.*-cache/
+
+# Working scratch dirs some skills stage during a run, then clean up:
+# .pending-notify (notify re-delivery), .pending-deploy (deploy-prototype build),
+# plus .pending-notify-temp where skills stage notify bodies for `./notify -f`
+.pending-*/
+
+# Skill provenance lock (per-repo, not committed)
+skills.lock
+
+# Scratch / temp files
+tmp_*
+*.tmp
+.*-tmp.md
+.*-draft.md
+.*-msg.txt
+*_msg.txt
+*_raw.txt
+
+# Python bytecode
+__pycache__/
+*.pyc
+
+# Node
+node_modules/
